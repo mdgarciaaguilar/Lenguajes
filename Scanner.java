@@ -15,11 +15,19 @@ public class Scanner {
             /*
              * State 0
              */
-            {1, ERROR, 103, 104, 0, ERROR},
+            {1, 3, ERROR, 6, 7, 0, ERROR},
             /*
              * State 1
              */ 
-            {1, 102, ERROR, ERROR, ERROR, ERROR}
+            {1, ERROR, ERROR, ERROR, ERROR, 2, ERROR},
+            /*
+             * State 3
+             */ 
+            {ERROR, ERROR, 4, ERROR, ERROR, ERROR, ERROR},
+            /*
+             * State 4
+             */ 
+            {4, 5, 4, 5, 5, 5, 5}
         };
 
     }
@@ -47,7 +55,7 @@ public class Scanner {
             } while (index < string.length() && state < 100);
             switch (state) {
                 case 102:
-                    tokens.add(new Token(Type.BINARY_NUMBER, value.toString()));
+                    tokens.add(new Token(Type.NUMBER, value.toString()));
                     break;
                 case 103:
                     tokens.add(new Token(Type.OPERATOR, value.toString()));
@@ -71,21 +79,84 @@ public class Scanner {
         switch (c) {
             case '0':
             case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
                 return 0;
-            case 'b':
+            case '$':
                 return 1;
-            case '+':
-            case '-':
+            case 'a':
+            case 'b':
+            case 'c':
+            case 'd':
+            case 'e':
+            case 'f':
+            case 'g':
+            case 'h':
+            case 'i':
+            case 'j':
+            case 'k':
+            case 'l':
+            case 'm':
+            case 'n':
+            case 'o':
+            case 'p':
+            case 'q':
+            case 'r':
+            case 's':
+            case 't':
+            case 'u':
+            case 'v':
+            case 'w':
+            case 'x':
+            case 'y':
+            case 'z':
+            case 'A':
+            case 'B':
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+            case 'G':
+            case 'H':
+            case 'I':
+            case 'J':
+            case 'K':
+            case 'L':
+            case 'M':
+            case 'N':
+            case 'O':
+            case 'P':
+            case 'Q':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U':
+            case 'V':
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z':
                 return 2;
             case '(':
             case ')':
                 return 3;
+            case '+':
+            case '-':
+            case '*':
+            case '/': 
+              return 4;
             case ' ':
             case '\t':
             case '\n':
-                return 4;
+                return 5;
             default:
-                return 5; // Illegal character
+                return 6; // Illegal character
         }
     }
 
