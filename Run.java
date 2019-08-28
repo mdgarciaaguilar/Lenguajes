@@ -10,11 +10,12 @@ public class Run {
         String string;
         Scanner scanner;
         scanner = new Scanner();
-        List<Token> tokens;        
-        string = "101b-(001b     +11b)";
+        List<Token> tokens;
+        //string = "101b-(001b     +11b)";
         //string = "101b+11b";
         //string = "101b(+11b)";
-        //string = "-+(-101b(+11b)"; 
+        //string = "-+(-101b(+11b)";
+        string = "123";
         System.out.println(string);
         tokens = scanner.scan(string);
         for (Token token : tokens) {

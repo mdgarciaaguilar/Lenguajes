@@ -15,19 +15,19 @@ public class Scanner {
             /*
              * State 0
              */
-            {1, 3, ERROR, 6, 7, 0, ERROR},
+            {1, 3, ERROR, 106, 107, 0, ERROR},
             /*
              * State 1
-             */ 
-            {1, ERROR, ERROR, ERROR, ERROR, 2, ERROR},
+             */
+            {1, ERROR, ERROR, ERROR, ERROR, 102, ERROR},
             /*
              * State 3
-             */ 
+             */
             {ERROR, ERROR, 4, ERROR, ERROR, ERROR, ERROR},
             /*
              * State 4
-             */ 
-            {4, 5, 4, 5, 5, 5, ERROR}
+             */
+            {4, 999, 4, 999, 999, 105, ERROR}
         };
 
     }
@@ -57,11 +57,14 @@ public class Scanner {
                 case 102:
                     tokens.add(new Token(Type.NUMBER, value.toString()));
                     break;
-                case 103:
-                    tokens.add(new Token(Type.OPERATOR, value.toString()));
+                case 105:
+                    tokens.add(new Token(Type.VARIABLE, value.toString()));
                     break;
-                case 104:
+                case 106:
                     tokens.add(new Token(Type.PARENTHESIS, value.toString()));
+                    break;
+                case 107:
+                    tokens.add(new Token(Type.OPERATOR, value.toString()));
                     break;
                 case ERROR:
                     value.append(c);
@@ -69,7 +72,7 @@ public class Scanner {
                     return tokens;
                 default:
                     return tokens;
-            }            
+            }
             state = 0;
         }
         return tokens;
@@ -149,7 +152,7 @@ public class Scanner {
             case '+':
             case '-':
             case '*':
-            case '/': 
+            case '/':
               return 4;
             case ' ':
             case '\t':
