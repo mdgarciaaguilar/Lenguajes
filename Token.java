@@ -3,7 +3,8 @@ package Scanner;
 public class Token {
 
     public enum Type {
-        BINARY_NUMBER,
+        NUMBER,
+        VARIABLE,
         OPERATOR,
         PARENTHESIS
     }   
