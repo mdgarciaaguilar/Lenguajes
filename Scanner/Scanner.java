@@ -15,7 +15,7 @@ public class Scanner {
             /*
              * State 0
              */
-            {1, 3, ERROR, 106, 107, 0, ERROR},
+            {1, 2, ERROR, 106, 107, 0, ERROR},
             /*
              * State 1
              */
@@ -23,11 +23,11 @@ public class Scanner {
             /*
              * State 3
              */
-            {ERROR, ERROR, 4, ERROR, ERROR, ERROR, ERROR},
+            {ERROR, ERROR, 3, ERROR, ERROR, ERROR, ERROR},
             /*
              * State 4
              */
-            {4, 999, 4, 999, 999, 105, ERROR}
+            {3, ERROR, 3, ERROR, ERROR, 105, ERROR}
         };
 
     }
@@ -55,9 +55,11 @@ public class Scanner {
             } while (index < string.length() && state < 100);
             switch (state) {
                 case 102:
+                    value.delete(value.length()-1,value.length());
                     tokens.add(new Token(Type.NUMBER, value.toString()));
                     break;
                 case 105:
+                    value.delete(value.length()-1,value.length());
                     tokens.add(new Token(Type.VARIABLE, value.toString()));
                     break;
                 case 106:

@@ -11,12 +11,8 @@ public class Run {
         Scanner scanner;
         scanner = new Scanner();
         List<Token> tokens;
-        //string = "101b-(001b     +11b)";
-        //string = "101b+11b";
-        //string = "101b(+11b)";
-        //string = "-+(-101b(+11b)";
 
-        string = "()";
+        string = "()+123 $a4 ";
 
         System.out.println(string);
         tokens = scanner.scan(string);
