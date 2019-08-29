@@ -15,7 +15,9 @@ public class Run {
         //string = "101b+11b";
         //string = "101b(+11b)";
         //string = "-+(-101b(+11b)";
-        string = "123";
+
+        string = "()";
+
         System.out.println(string);
         tokens = scanner.scan(string);
         for (Token token : tokens) {
